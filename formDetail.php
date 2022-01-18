@@ -22,7 +22,19 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
     <p>Maritial Status: <?php echo $row["maritalStatus"]; ?></p>
 
     <h4>Beneficial Owner</h4>
-    <p>Title: <?php echo $row["title"]; ?></p>
+    <p>Title: 
+        <?php 
+            if($row["title"] == 1){
+                echo "Mr.";
+            } else if ($row["title"] == 2){
+                echo "Mrs.";
+            } else if ($row["title"] == 3){
+                echo "Miss.";
+            } else if ($row["title"] == 4) {
+                echo "Minor.";
+            }
+        ?>
+    </p>
     <p>First Name: <?php echo $row["firstName"]; ?></p>
     <p>Middle Name: <?php echo $row["middleName"]; ?></p>
     <p>Last Name: <?php echo $row["lastName"]; ?></p>
@@ -61,18 +73,72 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
     <p>CitizenshipIssueDateAD: <?php echo $row["citizenshipIssueDateAD"]; ?></p>
     <p>DOBBS: <?php echo $row["DOBBS"]; ?></p>
     <p>DOBAD: <?php echo $row["DOBAD"]; ?></p>
-    <p>gender: <?php echo $row["gender"]; ?></p>
+    <p>gender: 
+        <?php 
+            if($row["gender"] == 1){
+                echo "Male";
+            } else if ($row["gender"] == 2){
+                echo "Female";
+            } else if ($row["gender"] == 3) {
+                echo "Others";
+            }
+        ?>
+    </p>
     <p>panno: <?php echo $row["panno"]; ?></p>
 
     <h4>Bank Details</h4>
-    <p>bankAccountType: <?php echo $row["bankAccountType"]; ?></p>
+    <p>Bank Account Type: 
+        <?php 
+            if($row["bankAccountType"] == 1){
+                echo "Saving Account";
+            } else if ($row["bankAccountType"] == 2) {
+                echo "Current Account";
+            }
+        ?>
+    </p>
     <p>bankAccountno: <?php echo $row["bankAccountno"]; ?></p>
     <p>bank: <?php echo $row["bank"]; ?></p>
     <p>branch: <?php echo $row["branch"]; ?></p>
 
     <h4>Occupation Details</h4>
-    <p>occupationType: <?php echo $row["occupationType"]; ?></p>
-    <p>businessType: <?php echo $row["businessType"]; ?></p>
+    <p>Occupation Type:
+        <?php 
+            if($row["occupationType"] == 1){
+                echo "Public Sector";
+            } else if ($row["occupationType"] == 2){
+                echo "Private Sector";
+            } else if ($row["occupationType"] == 3){
+                echo "Business person";
+            } else if ($row["occupationType"] == 4){
+                echo "Student";
+            } else if ($row["occupationType"] == 5){
+                echo "Farmer";
+            } else if ($row["occupationType"] == 6){
+                echo "Retired";
+            } else if ($row["occupationType"] == 7){
+                echo "Housewife";
+            } else if ($row["occupationType"] == 8){
+                echo "Government Service";
+            } else if ($row["occupationType"] == 9){
+                echo "Professional";
+            } else if ($row["occupationType"] == 10){
+                echo "Student";
+            }  else if ($row["occupationType"] == 11){
+                echo "Service";
+            } else if ($row["occupationType"] == 12){
+                echo "Others";
+            }
+        ?>
+    </p>
+    <p>Business Type: 
+        <?php 
+            if($row["businessType"] == 1){
+                echo "Manufacturing";
+            } else if ($row["businessType"] == 2) {
+                echo "Services";
+            } 
+        ?>
+    </p>
     <p>organizationName: <?php echo $row["organizationName"]; ?></p>
     <p>organizationAddress: <?php echo $row["organizationAddress"]; ?></p>
     <p>designation: <?php echo $row["designation"]; ?></p>
@@ -124,7 +190,15 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
     <p>nomineeName: <?php echo $row["nomineeName"]; ?></p>
     <p>nomineeFathersName: <?php echo $row["nomineeFathersName"]; ?></p>
     <p>nomineeRelationship: <?php echo $row["nomineeRelationship"]; ?></p>
-    <p>referenceDocument: <?php echo $row["referenceDocument"]; ?></p>
+    <p>referenceDocument: 
+        <?php 
+            if($row["referenceDocument"] == 1){
+                echo "Citizenship";
+            } else if ($row["referenceDocument"] == 2) {
+                echo "Birth Certificate";
+            } 
+        ?>
+    </p>
     <p>placeOfIssue: <?php echo $row["placeOfIssue"]; ?></p>
     <p>nomineeIssueYear: <?php echo $row["nomineeIssueYear"]; ?></p>
     <p>nominee_zone: <?php echo $row["nominee_zone"]; ?></p>
