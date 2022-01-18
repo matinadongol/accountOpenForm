@@ -11,7 +11,6 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
 ?>
 
 <div class="container my-2">
-
     <div class="form_heading">
         <h3>Account Detail </h3>
         <button class="btn btn-success my-1" onclick="window.print();" id="print-btn">Print</button>
@@ -79,6 +78,47 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
     <p>designation: <?php echo $row["designation"]; ?></p>
     <p>income: <?php echo $row["income"]; ?></p>
 
+    <h4>Other Documents</h4>
+    <p>Applicant Photo: 
+        <?php
+            $imgDirectory = 'upload/applicantPhoto/'.$row["applicantPhoto"];
+            echo "<img src='$imgDirectory' width='200'> ";
+        ?>
+    </p>
+   <?php
+    if(!$row["applicantCitizenshipBackPhoto"]){
+        $birthOrCitizen = "Applicant Birth Certificate Photo:";
+    } else {
+        $birthOrCitizen = "Applicant Citizenship Front Photo:";
+    }   
+    echo "<p>$birthOrCitizen";
+    $imgDirectory = 'upload/applicantCitizenshipFrontPhoto/'.$row["applicantCitizenshipFrontPhoto"];
+    echo "<img src='$imgDirectory' width='200'></p>";
+    if($row["applicantCitizenshipBackPhoto"]){
+        echo "<p>Applicant Citizenship Back Photo:";
+        $imgDirectory = 'upload/applicantCitizenshipBackPhoto/'.$row["applicantCitizenshipBackPhoto"];
+        echo "<img src='$imgDirectory' width='200'></p>";
+    }
+    ?>
+    <p>Applicant Thumb Photo: 
+        <?php
+            $imgDirectory = 'upload/applicantThumbPhoto/'.$row["applicantThumbPhoto"];
+            echo "<img src='$imgDirectory' width='200'> ";
+        ?>
+    </p>
+    <p>Applicant Location Map Photo: 
+        <?php
+            $imgDirectory = 'upload/applicantLocationMapPhoto/'.$row["applicantLocationMapPhoto"];
+            echo "<img src='$imgDirectory' width='200'> ";
+        ?>
+    </p>
+    <p>Applicant Signature Photo: 
+        <?php
+            $imgDirectory = 'upload/applicantSignaturePhoto/'.$row["applicantSignaturePhoto"];
+            echo "<img src='$imgDirectory' width='200'> ";
+        ?>
+    </p>
+
     <h4>Nominee Details</h4>
     <p>nominee: <?php echo $row["nominee"]; ?></p>
     <p>nomineeName: <?php echo $row["nomineeName"]; ?></p>
@@ -93,7 +133,38 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
     <p>nominee_mobileno: <?php echo $row["nominee_mobileno"]; ?></p>
     <p>nominee_email: <?php echo $row["nominee_email"]; ?></p>
     <p>nominee_correspondenceAddress: <?php echo $row["nominee_correspondenceAddress"]; ?></p>
-    <p>nomineePhoto: <?php echo $row["nomineePhoto"]; ?></p>
+    <p>Nominee Photo: 
+        <?php 
+            if($row["nomineePhoto"]){
+                $imgDirectory = 'upload/nomineePhoto/'.$row["nomineePhoto"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
+    <p>Nominee Signature: 
+        <?php 
+            if($row["nomineeSignature"]){
+                $imgDirectory = 'upload/nomineeSignature/'.$row["nomineeSignature"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
+    <p>Nominee Document Front: 
+        <?php 
+            if($row["nomineeDocumentFront"]){
+                $imgDirectory = 'upload/nomineeDocumentFront/'.$row["nomineeDocumentFront"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
+    <p>Nominee Document Back: 
+        <?php 
+            if($row["nomineeDocumentBack"]){
+                $imgDirectory = 'upload/nomineeDocumentBack/'.$row["nomineeDocumentBack"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
 
     <h4>Guardian Details</h4>
     <p>guardianFirstName: <?php echo $row["guardianFirstName"]; ?></p>
@@ -120,6 +191,46 @@ if ( isset( $_GET['id'] ) && !empty( $_GET['id'] ) ){
     <p>guardian_citizenshipIssueDateAD: <?php echo $row["guardian_citizenshipIssueDateAD"]; ?></p>
     <p>guardian_DOBBS: <?php echo $row["guardian_DOBBS"]; ?></p>
     <p>guardian_DOBAD: <?php echo $row["guardian_DOBAD"]; ?></p>
+    <p>Guardian Photo: 
+        <?php 
+            if($row["guardianPhoto"]){
+                $imgDirectory = 'upload/guardianPhoto/'.$row["guardianPhoto"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
+    <p>Guardian Signature: 
+        <?php 
+            if($row["guardianSignature"]){
+                $imgDirectory = 'upload/guardianSignature/'.$row["guardianSignature"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
+    <p>Guardian Citizenship Front: 
+        <?php 
+            if($row["guardianCitizenshipFront"]){
+                $imgDirectory = 'upload/guardianCitizenshipFront/'.$row["guardianCitizenshipFront"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
+    <p>Guardian Citizenship Back: 
+        <?php 
+            if($row["guardianCitizenshipBack"]){
+                $imgDirectory = 'upload/guardianCitizenshipBack/'.$row["guardianCitizenshipBack"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
+    <p>Guardian Proof: 
+        <?php 
+            if($row["guardianProof"]){
+                $imgDirectory = 'upload/guardianProof/'.$row["guardianProof"];
+                echo "<img src='$imgDirectory' width='200'> ";
+            }
+        ?>
+    </p>
 </div>
 <?php
 }
